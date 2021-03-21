@@ -3,8 +3,8 @@ keep_prob=tf.placeholder(tf.float32,[])
 embedding
 '''
 sequence_length=tf.einsum('bw->b',tf.cast(x>0,tf.int32))
-embedding_table=tf.get_variable('embedding_table',[3,128])
-embedding_table=tf.concat([embedding_table,np.load('skip_gram_word_embedding.npy')[3:]],0)
+embedding_table=tf.get_variable('embedding_table',[3,128])###
+embedding_table=tf.concat([embedding_table,np.load('skip_gram_word_embedding.npy')[3:]],0)###
 E=tf.nn.embedding_lookup(embedding_table,x)
 E=tf.nn.dropout(E,keep_prob)
 
